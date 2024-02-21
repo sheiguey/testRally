@@ -13,7 +13,7 @@ import { GoogleMap } from '@angular/google-maps';
 })
 
 
-export class MapComponent implements OnInit {
+export class MapComponent implements AfterViewInit {
   private map!: L.Map;
 
   private initMap():void{
@@ -33,10 +33,11 @@ export class MapComponent implements OnInit {
    }
 
   constructor(){}
-
-  ngOnInit(): void {
-     this.initMap()
+  ngAfterViewInit(): void {
+    this.initMap()
   }
+
+ 
 
   
 }
