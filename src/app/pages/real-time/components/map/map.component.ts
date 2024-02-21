@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit,AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 
 import { GoogleMap } from '@angular/google-maps';
@@ -14,9 +14,10 @@ import { GoogleMap } from '@angular/google-maps';
 
 
 export class MapComponent implements OnInit {
+  private map!: L.Map;
 
   private initMap():void{
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    this.map = L.map('map').setView([51.505, -0.09], 13);
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
@@ -24,9 +25,9 @@ export class MapComponent implements OnInit {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
-    tiles.addTo(map)
+    tiles.addTo(this.map)
 
-    L.marker([51.5, -0.09]).addTo(map)
+    L.marker([51.5, -0.09]).addTo(this.map)
     .bindPopup('A pretty CSS popup.<br> Easily customizable.')
     .openPopup();
    }
