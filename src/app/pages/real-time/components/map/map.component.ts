@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import * as L from 'leaflet';
+
 
 import { GoogleMap } from '@angular/google-maps';
+import L from 'leaflet';
 
 @Component({
   selector: 'app-map',
@@ -30,9 +31,9 @@ export class MapComponent implements OnInit {
 
   constructor(){}
 
-  ngOnInit(): void {
-     this.initMap()
-  }
+    ngOnInit(): void {
+      this.initMap()
+    }
 
   
 }
