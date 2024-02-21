@@ -1,0 +1,66 @@
+@import '../../styles/variables';
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../../assets/images/Groupe.png');  
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: fill;
+
+    img {
+        width: 20vw;
+        height: 20vh;
+    }
+    input {
+        width: 18vw;
+        height: 3rem;
+        border: 1px solid  $black;
+        border-radius: 36px;
+        padding-left: 2rem;
+    }
+
+    button {
+        width: 20vw;
+        height: 3rem;
+        color: $white;
+        margin-bottom: 2rem;
+        border: none;
+        border-radius: 36px;
+        background-color: $green;
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        &:hover {
+            background-color: $hover_green;
+        }
+
+    }
+    .login {
+        margin: 2rem 0;
+        font-size: 3em;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        color: $black;
+        font-weight: bold;
+    }
+    
+    &__card {
+        padding: 0 3%;
+        border: 1px solid #707070;
+        border-radius: 60px 0px 60px 10px;;
+    }
+
+    &__card__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    
+}

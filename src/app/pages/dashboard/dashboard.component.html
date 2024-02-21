@@ -1,0 +1,83 @@
+
+<app-count />
+<mat-card #fullScreenElement 
+    class="container" 
+    [ngClass]="{'fullscreen': isFullScreen()}" 
+>
+    <div [ngClass]="{'headerfullscreen': isFullScreen(), 'header': !isFullScreen()}">
+        <div class="subtitle">
+            <img src="/assets/icons/listPilote.svg" alt="Liste pilote">
+            <p>Liste des pilotes</p>
+        </div>
+        <div >
+            <img src="/assets/icons/reload.svg" alt="menu toggle" (click)="toggleFullScreen()" class="img">
+            @if (isFullScreen()) {
+                <img src="/assets/icons/x.png" alt="menu toggle" style="width: 1.6rem; height: 1.6rem;" (click)="hideFullScreen()" class="img">
+            } @else {
+                <img src="/assets/icons/fullscreen.png" alt="menu toggle" style="width: 1.6rem; height: 1.6rem;" (click)="toggleFullScreen()" class="img">
+            }
+        </div>
+    </div>
+    <mat-card-content >
+        <section 
+            class="mat-elevation-z8" 
+            [ngClass]="{'tablefullscreen': isFullScreen(), 'table': !isFullScreen()}" 
+            tabindex="0"
+        >
+            <table mat-table [dataSource]="dataSource" class="scroll">
+                <ng-container matColumnDef="d">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element" class="flex">
+                        <div class="img1">
+                            <img src={{element.img}} alt={{element.img}} >
+                        </div>
+                        <div class="img2">
+                            <img src={{element.imgCar}} alt={{element.imgCar}} >
+                        </div>
+                    </td>
+                </ng-container>
+                <!-- Position Column -->
+                <ng-container matColumnDef="Pilote">
+                    <th mat-header-cell *matHeaderCellDef> Pilote </th>
+                    <td mat-cell *matCellDef="let element" > 
+                        {{element.pilote}} 
+                    </td>
+                </ng-container>
+            
+                <!-- Name Column -->
+                <ng-container matColumnDef="Sponsors">
+                    <th mat-header-cell *matHeaderCellDef> Sponsors </th>
+                    <td mat-cell *matCellDef="let element"> {{element.sponsors}} </td>
+                </ng-container>
+            
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Marque">
+                    <th mat-header-cell *matHeaderCellDef> Marque </th>
+                    <td mat-cell *matCellDef="let element"> {{element.marque}} </td>
+                </ng-container>
+            
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Vehicules">
+                    <th mat-header-cell *matHeaderCellDef> Véhicules </th>
+                    <td mat-cell *matCellDef="let element"> {{element.car}} </td>
+                </ng-container>
+
+                   <!-- Symbol Column -->
+                   <ng-container matColumnDef="Actions">
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                    <td mat-cell *matCellDef="let element" >
+                        <div style="display: flex; gap: 0.1rem;">
+                            <button mat-raised-button class="btnStartRes">Debut</button>
+                            <button mat-raised-button class="btnEndRes">Fin</button>
+                        </div>
+                        <button mat-raised-button class="btnStart">Debut Course</button>
+                        <button mat-raised-button class="btnEnd">Fin Course</button>
+                    </td>
+                </ng-container>
+            
+                <tr class="headerbc" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </section>
+    </mat-card-content>
+</mat-card>

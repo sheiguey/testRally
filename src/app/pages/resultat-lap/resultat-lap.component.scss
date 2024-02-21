@@ -1,0 +1,78 @@
+@import '../../styles/variables';
+
+.navFullscreen {
+    margin-top: 4rem;
+}
+.container {
+    position: relative;
+    margin-top: 3rem;
+    border: 1px solid $black;
+    border-radius: 20px;
+
+    .header {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -2rem;
+        display: flex;
+        justify-content: space-between;
+        background-color: #B9A955;
+        margin: 0 3rem;
+        padding: 1rem;
+        border-radius: 13px;
+
+        .img {
+            cursor: pointer;
+
+            &:hover {
+                scale: 1.1;
+            }
+        }
+    }
+
+    img {
+        width: 3vw;
+        height: 3vh;
+    }
+
+    .subtitle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        p {
+            margin: 0;
+            color: $white;
+            font-size: 20px
+        };
+    }
+
+    .content {
+        margin-top: 3rem;
+        p {
+            margin: 0;
+            text-align: center;
+            color: $white;
+            font-size: 21px;
+        }
+        &__nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        &__nav-item {
+            width: 20vw;
+            padding: 0.8rem;
+            background-color: #707070;
+            cursor: pointer;
+        }
+        .active {
+            background-color: #585859;
+        }
+    }
+     
+    .content__main {
+        margin-top: 0.5rem;
+    }
+}
+

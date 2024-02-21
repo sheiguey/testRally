@@ -1,0 +1,140 @@
+@import '../../styles/variables';
+
+.container {
+    position: relative;
+    margin-top: 3rem;
+    border: 1px solid $black;
+    border-radius: 20px;
+
+    .header {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -2rem;
+        display: flex;
+        justify-content: space-between;
+        background-color: #B9A955;
+        margin: 0 3rem;
+        padding: 1rem;
+        border-radius: 13px;
+
+        .img {
+            cursor: pointer;
+
+            &:hover {
+                scale: 1.1;
+            }
+        }
+    }
+
+    img {
+        width: 3vw;
+        height: 3vh;
+    }
+
+    .subtitle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        p {
+            margin: 0;
+            color: $white;
+            font-size: 20px
+        };
+    }
+
+    .content {
+        display: flex;
+        padding: 2rem;
+        margin-top: 1rem;
+    }
+
+    .form-items {
+        display: flex;
+        flex-direction: column;
+        // gap: 2rem;
+    }
+
+    .input {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // width: 35vw;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        height: 3.5rem;
+        border: 1px solid  #bababa;
+        border-radius: 28px;
+        padding-left: 2rem;
+        overflow: hidden;
+        button {
+            border: none;
+            border-radius: 28px;
+            background-color: #70707029;
+            cursor: pointer;
+            &:hover {
+                background-color: #26242429;;
+            }
+        }
+        p {
+            margin: 0;
+            color: $black;
+        }
+        .file {
+            height: 100%;
+            width: 25%;
+        }
+
+       
+
+    }
+    .validateBtn {
+        height: 3rem;
+        margin-top: 2rem;
+        color: $white;
+        font-weight: bold;
+        font-size: 15px;
+        border: none;
+        border-radius: 28px;
+        background-color: $green;
+
+        &:hover {
+            background-color: $hover_green;
+        }
+
+    }
+    .imma {
+        width: 37vw;
+    }
+    .imge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        img {
+            width: 60%;
+            height: 60%;
+        }
+    }
+
+}
+
+:host ::ng-deep .mdc-text-field--outlined {
+    --mdc-outlined-text-field-container-shape: 28px;
+}
+
+@media screen and (max-width: 1020px) {
+    .container {
+        .content {
+            display: block;
+            padding: 4rem;
+        }
+        .imma {
+            width: 100%;
+        }
+        .imge {
+            display: none;
+        }
+    }
+}

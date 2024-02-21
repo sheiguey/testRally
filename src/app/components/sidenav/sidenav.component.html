@@ -1,0 +1,50 @@
+<nav class="main">
+    @if (btnMenu() && _navBarService.show()) {
+        <img 
+            src="/assets/icons/toggleMenu.svg" 
+            alt="menu toggle" 
+            class="showNav" 
+            (click)="showNav()"
+        >
+    } 
+   
+    <div class="{{serviceAuth.isLoggedIn() ? 'main__container' : 'main__ctn'}}">
+        @if (serviceAuth.isLoggedIn()) {
+            <div class="main__container-img">
+                <img src="/assets/images/user.png" alt="user name">
+            </div>  
+        }
+        <p class="welcome">Bienvenu</p>
+        @if (serviceAuth.isLoggedIn()) {
+            <p class="name">Yven Michel</p>
+        }
+        <mat-divider class="divider"></mat-divider>
+        @if (serviceAuth.isLoggedIn()) {
+            <div class="logout" (click)="logout()">
+                <img src="/assets/icons/lockunlock.svg" alt="lock">
+                <p>Deconnexion</p>
+            </div>
+        }
+
+        <ul class="main__container-menu">
+            @for (menu of menus; track menu.name) {
+                <li 
+                    [routerLink]=[menu.routeLink]
+                    class="main__container-menu-item"
+                    routerLinkActive="active"
+                >
+                    <div class="title">
+                        <img src={{menu.icon}} alt="icon">
+                        <p>{{menu.name}}</p>
+                    </div>
+                </li>
+            }
+        </ul>
+
+        <div class="logo">
+            <img src="../../../assets/images/ear.png" alt="">
+        </div>
+    </div>
+</nav>
+
+

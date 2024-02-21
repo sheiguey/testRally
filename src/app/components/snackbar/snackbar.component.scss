@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__title {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 17px;
+    }
+}
+
+.blue-snackbar {
+    background-color: red;
+}

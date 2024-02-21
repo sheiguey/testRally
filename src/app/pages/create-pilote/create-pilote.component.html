@@ -1,0 +1,75 @@
+<mat-card class="container" #fullScreenElement>
+    <div class="header">
+        <div class="subtitle">
+            <img src="/assets/icons/listPilote.svg" alt="Liste pilote">
+            <p>Liste des pilotes</p>
+        </div>
+        <div style="display: flex; gap: 1.2vw">
+            <img src="/assets/icons/reload.svg" 
+                alt="reload"  class="img" 
+                style="width: 1.6rem; height: 1.6rem;"
+            >
+            <!-- <img src="/assets/icons/fullscreen.png" 
+                alt="full screen"  class="img" 
+                style="width: 1.6rem; height: 1.6rem;"
+                (click)="toggleFullScreen()"
+            > -->
+        </div>
+    </div>
+    <mat-card-content class="content">
+        <div>
+            <div class="form-items">
+                <mat-form-field appearance="outline" style=" height: 3rem;">
+                    <input matInput placeholder="Nom du Pilote">
+                </mat-form-field>
+                <div>
+                    <div class="input">
+                        @if (fileName) {
+                            <p style="font-size: 17px; color: #919191; font-weight: 1;">{{fileName}}</p>
+                        } @else {
+                            <p style="font-size: 17px; color: #919191;">Photo pilote</p>
+                        }
+                        <button class="file" (click)="uploadFile()">
+                            <p>Charger le fichier</p>
+                        </button>
+                        <input 
+                            type="file" 
+                            #fileInput 
+                            (change)="handleFileInput($event)"
+                            style="display: none; height: 100%;"
+                        >
+                    </div>
+                </div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Sponsor</mat-label>
+                    <mat-select>
+                      <mat-option value="one">CAMTRACK</mat-option>
+                      <mat-option value="two">CAMTEL</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Marque de véhicule</mat-label>
+                    <mat-select>
+                      <mat-option value="one">CAMTRACK</mat-option>
+                      <mat-option value="two">CAMTEL</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Id Wialon</mat-label>
+                    <mat-select>
+                      <mat-option value="one">CAMTRACK</mat-option>
+                      <mat-option value="two">CAMTEL</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" style="height: 3rem;" class="imma">
+                    <input matInput placeholder="Immatriculation">
+                </mat-form-field>
+                <button mat-raised-button class="validateBtn" (click)="create()">Valider</button>
+            </div>
+        </div>
+
+        <div class="imge">
+            <img src="/assets/images/imgCar.png" alt="car image">
+        </div>
+    </mat-card-content>
+</mat-card>

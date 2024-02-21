@@ -1,0 +1,19 @@
+<mat-drawer-container class="container sidenav">
+    <mat-drawer [mode]="isSmallScreen ? 'over' : 'side'" class="container__side" opened={{_navBarService.show()}} disableClose>
+        <app-sidenav />
+    </mat-drawer>
+    <mat-drawer-content class="container__main">
+        @if (!_navBarService.show()) {
+            <div class="showNav" style="display: flex; align-items: center;">
+                <img 
+                    src="/assets/icons/toggleMenu.svg" 
+                    alt="menu toggle"  
+                    (click)="showNav()"
+                    class="hover"
+                >
+                <img src="/assets/icons/ear.png" alt="ear">
+            </div>
+        }
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>  

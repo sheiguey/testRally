@@ -1,0 +1,41 @@
+<mat-card
+    #fullScreenElement
+    class="container"
+    [ngClass]="{'fullscreen': isFullScreen()}" 
+>
+    <div [ngClass]="{'headerfullscreen': isFullScreen(), 'header': !isFullScreen()}">
+        <div class="subtitle">
+            <img src="/assets/icons/listPilote.svg" alt="Liste pilote" style="width: 2rem; height: 2rem;">
+            <p>Evolutions des laps</p>
+        </div>
+        <div>
+            <img src="/assets/icons/reload.svg" alt="menu toggle"  class="img">
+            @if (isFullScreen()) {
+                <img src="/assets/icons/x.png" alt="menu toggle" style="width: 1.6rem; height: 1.6rem;" (click)="hideFullScreen()" class="img">
+            } @else {
+                <img src="/assets/icons/fullscreen.png" alt="menu toggle" style="width: 1.6rem; height: 1.6rem;" (click)="toggleFullScreen()" class="img">
+            }
+        </div>
+    </div>
+    <mat-card-content class="content">
+        <div class="content__nav" [ngClass]="{'navFullscreen': isFullScreen()}" >
+            <div 
+                class="content__nav-item" 
+                [routerLink]="[{ outlets: { resultat: ['lap-1'] } }]"
+                routerLinkActive="active"
+            >
+                <p>Evolution des laps 1</p>
+            </div>
+            <div 
+                class="content__nav-item" 
+                [routerLink]="[{ outlets: {resultat: ['lap-2'] } }]"
+                routerLinkActive="active"    
+            >
+                <p>Evolution des laps 2</p>
+            </div>
+        </div>
+        <div class="content__main">
+            <router-outlet name="resultat"></router-outlet>
+        </div>
+    </mat-card-content>
+</mat-card> 

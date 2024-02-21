@@ -1,0 +1,142 @@
+@import '../../styles/variables';
+.fullscreen {
+    margin-top: 4rem;
+}
+th {
+    font-size: 22px;
+    color: #585859;
+    font-weight: bold;
+}
+td {
+    font-size: 22px;
+    color: #585859;
+}
+.container {
+    position: relative;
+    margin-top: 3rem;
+    border: 1px solid $black;
+    border-radius: 20px;
+
+    .header {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -2rem;
+        display: flex;
+        justify-content: space-between;
+        background-color: #B9A955;
+        margin: 0 3rem;
+        padding: 1rem;
+        border-radius: 13px;
+        
+        .img {
+            cursor: pointer;
+            &:hover {
+                scale: 1.1;
+            }
+        }
+    }
+    
+    img {
+        width: 3vw;
+        height: 3vh;
+    }
+    
+    .subtitle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        p {
+            margin: 0;
+            color: $white;
+            font-size: 20px
+        };
+    }
+
+    .content{
+        display: flex;
+        justify-content: space-between;
+        // flex-wrap: wrap;
+        margin-top: 3rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        
+        .map {
+            border: 1px solid $black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50vw;
+        }
+
+        .list {
+            width: 25vw;
+        }
+
+        .imgDriver {
+            display: flex;
+            flex-wrap: nowrap;
+        
+            .img1 {
+                position: relative;
+                background-color: $white;
+                width: 4rem; 
+                height: 4rem;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        
+           
+            .img2 {
+                // position: absolute;
+                width: 4rem; 
+                height: 4rem;
+                margin-left: - calc(100% - 80%);
+                
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1523px) { 
+    .container {
+        .content {
+            .map {
+                width: 56vw;
+            }
+            .list {
+                width: calc(100vw - 70vw);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 985px) {
+    .container {
+        .content {
+            flex-direction: column;
+            gap: 2rem;
+
+            .map {
+                width: 100%;
+                height: 10rem;
+            }
+
+            .list {
+                width: 100%;
+            }
+        }
+        
+    }
+ }

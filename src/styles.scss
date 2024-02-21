@@ -1,0 +1,63 @@
+@import './app/styles/variables';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mdc-snackbar__surface {
+    background-color: $green  !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 20px !important;
+  }
+
+  .mat-drawer-side {
+    border-right-width: 0; 
+    border-right-style: none !important;
+}
+
+/* 
+    Styling fullscreen
+*/
+.container.fullscreen {
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 999999999999;
+}
+.tablefullscreen {
+    height: 100%;
+    margin: 8rem 1rem 1rem 1rem;
+
+}
+.headerfullscreen {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: #B9A955;
+    padding: 1rem;
+    border-radius: 13px;
+
+    .img {
+        cursor: pointer;
+        &:hover {
+            scale: 1.1;
+        }
+    }
+}

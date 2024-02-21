@@ -1,0 +1,78 @@
+@import '../../../../styles/variables';
+
+.container {
+    background-color: $white-op;
+    backdrop-filter: blur(5px);
+    border-radius: 32px;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    &__content-item {
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+    }
+    .card {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding: -1rem;
+        width: 25vw;
+        height: 15vh;
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        opacity: 1;
+        border-radius: 20px;
+    }
+
+    .cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p{
+            margin-top: 2rem;
+            font-size: 50px;
+            color: #585859;
+        }
+    }
+    .head {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -1.1rem;
+        margin: 0 1rem ;
+        padding: 0.5rem 0;
+        color: $white;
+        text-align: center;
+        background-color: $green;
+        border-radius: 13px;
+        font-weight: 1;
+    }
+}
+
+@media screen and (max-width: 1304px) {
+    .container {
+        .cont{
+            p {
+                font-size: 35px;
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 923px) {
+    .container {
+        .cont{
+            p {
+                font-size: 25px;
+            }
+        }
+
+    }
+}
+

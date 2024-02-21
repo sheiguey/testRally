@@ -1,0 +1,81 @@
+  @import '../../styles/variables';
+  .header {
+    background-color: $orange;
+    color: #fff;
+    border-radius: 20px;
+    
+    .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        .subtitle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+            &__p{
+                margin: 0;
+                font-size: 21px;
+            }
+
+            img {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+        .close {
+            font-size: 20px;
+            cursor: pointer;
+            &:hover{
+                font-size: 22px;
+                font-weight: bold;
+                
+            }
+        }
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin: 3vw;
+    .img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .imgDriver {
+            margin-bottom: -4rem;
+            z-index: 99999;
+        }
+    }
+
+    .title {
+
+        &__item {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1rem;
+        }
+
+        .it_title {
+            width: 10vw;
+            margin-top: 1rem;
+            p{
+                font-weight: bold;
+                font-size: 24px;
+            }
+        }
+        .it {
+            margin-top: 1rem;
+            p{
+                font-size: 24px;
+            }
+        }
+    }
+  }
