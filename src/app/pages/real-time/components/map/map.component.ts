@@ -1,27 +1,37 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import * as L from 'leaflet';
+
 import { GoogleMap } from '@angular/google-maps';
 
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [
-    GoogleMap
-  ],
+  imports: [GoogleMap],
   templateUrl: './map.component.html',
   styleUrl: './map.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MapComponent {
 
-  center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
-  zoom = 4;
-  display: google.maps.LatLngLiteral | null = null;
 
-  // moveMap(event: google.maps.MapMouseEvent) {
-  //   this.center = (event?.latLng.toJSON());
-  // }
+export class MapComponent implements OnInit {
 
-  // move(event: google.maps.MapMouseEvent) {
-  //   this.display = event.latLng.toJSON();
-  // }
+  private initMap():void{
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+    .openPopup();
+   }
+
+  constructor(){}
+
+  ngOnInit(): void {
+     this.initMap()
+  }
+
+  
 }
