@@ -12,7 +12,6 @@ import { GoogleMap } from '@angular/google-maps';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-
 export class MapComponent implements OnInit {
   private map!: L.Map;
 
@@ -22,18 +21,18 @@ export class MapComponent implements OnInit {
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       minZoom: 10,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      attribution: '&copy; <a href="https://camtrack.net/">Camtrack</a>'
     });
 
     tiles.addTo(this.map)
 
-    L.marker([51.5, -0.09]).addTo(this.map)
-    .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+    L.marker([4.0227234,9.7029807]).addTo(this.map)
+    .bindPopup('conducteur 1')
     .openPopup();
    }
 
   constructor(){}
-  
+
   ngOnInit(): void {
     this.initMap()
   }
