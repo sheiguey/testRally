@@ -1,12 +1,7 @@
 .map-container {
-    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
 }
   
-  .map-frame {
-    border: 2px solid black;
-    height: 100%;
-  }
-  
-  #map {
-    height: 100%;
-  }
