@@ -19,13 +19,14 @@ L.Icon.Default.imagePath = 'assets/icons/map/'
 export class MapComponent implements OnInit {
   private map!: L.Map;
   markers: L.Marker[] = [];
-  options!:{}
-  sid!:""
+  options!:{};
+  sid!:"";
+  vehiclePosition!:[]
 
 
   ngOnInit(): void {
     this.initMap()
-    this.onGetSid()
+    this.onGetVehiclePosition()
    } 
       
   constructor(private realTimeService:RealTimeService){}
@@ -38,7 +39,16 @@ export class MapComponent implements OnInit {
     .catch(err => console.log(err))
     .finally(()=>console.log(this.sid))
   }
-
+  
+  onGetVehiclePosition(){
+    this.onGetSid();
+    this.realTimeService.getVehiclePosition(this.sid)
+    .then(res=>{
+      this.vehiclePosition=res.data
+    })
+    .catch(err => console.log(err))
+    .finally(()=>console.log(this.vehiclePosition))
+  }
 
   initMarkers() {
     const initialMarkers = [
