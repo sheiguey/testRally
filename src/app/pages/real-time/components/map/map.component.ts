@@ -27,7 +27,7 @@ export class MapComponent implements OnInit {
   ngOnInit(): void {
     this.initMap()
     this.onUpdatePosition()
-    setInterval(()=>this.onUpdatePosition(),3000)
+    
    } 
       
   constructor(private realTimeService:RealTimeService){}
