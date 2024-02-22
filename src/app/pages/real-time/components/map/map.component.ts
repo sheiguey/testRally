@@ -16,7 +16,7 @@ import { GoogleMap } from '@angular/google-maps';
 export class MapComponent implements OnInit {
   private map!: L.Map;
   markers: L.Marker[] = [];
-  private options!:{}
+  options!:{}
 
   initMarkers() {
     const initialMarkers = [
