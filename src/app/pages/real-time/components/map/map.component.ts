@@ -20,7 +20,7 @@ export class MapComponent implements OnInit {
   private map!: L.Map;
   options!:{};
   sid!:"";
-  vehiclePosition=[
+/*   vehiclePosition=[
     {
        "nm":"FM1000-1",
        "cls":2,
@@ -1823,8 +1823,8 @@ export class MapComponent implements OnInit {
        "retr":null,
        "uacl":19327369763
     }
- ]
-
+ ] */
+  vehiclePosition!:[]
 
   ngOnInit(): void {
     this.initMap()
@@ -1833,6 +1833,7 @@ export class MapComponent implements OnInit {
    } 
       
   constructor(private realTimeService:RealTimeService){}
+
   onUpdatePosition(){
     this.onGetSid();
     this.onGetVehiclePosition(this.sid);
@@ -1869,8 +1870,8 @@ export class MapComponent implements OnInit {
 
   onMapReady($event: L.Map) {
     this.map = $event;
-    this.onAddMarkers(4.0226731,9.7030975,"FM1000-2");
-    this.onUpdateMakers()
+    this.onUpdatePosition();
+    //this.onUpdateMakers()
   }
 
   
@@ -1881,7 +1882,7 @@ export class MapComponent implements OnInit {
         attribution: '&copy; <a href="https://camtrack.net/">Camtrack</a>'
       })
     ],
-    zoom: 16,
+   
     center: { lat: 4.0482700, lng: 9.7042800 }
   }
 }
