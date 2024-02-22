@@ -1823,12 +1823,12 @@ export class MapComponent implements OnInit {
        "retr":null,
        "uacl":19327369763
     }
-  ]  
+ ]  
   //vehiclePosition!:[]
 
   ngOnInit(): void {
     this.initMap()
-    //this.onGetVehiclePosition()
+    //setInterval(this.onGetVehiclePosition(),10000) */
    } 
       
   constructor(private realTimeService:RealTimeService){}
@@ -1842,16 +1842,14 @@ export class MapComponent implements OnInit {
     .finally(()=>console.log(this.sid))
   }
   
-  /* onGetVehiclePosition(){
-    this.onGetSid();
+  onGetVehiclePosition(){
     this.realTimeService.getVehiclePosition(this.sid)
     .then(res=>{
       this.vehiclePosition=res.data.items
     })
-    .then(()=>this.onUpdateMakers())
+    .then(()=>console.log(this.vehiclePosition))
     .catch(err => console.log(err))
-    .finally(()=>console.log(this.vehiclePosition))
-  } */
+  } 
 
   onAddMarkers(Y:number,X:number,vehicule:string) {
     L.marker([Y, X]).addTo(this.map).bindPopup("<p>Vehicule</p><b>"+" "+ vehicule + "</b>").openPopup()
@@ -1866,10 +1864,10 @@ export class MapComponent implements OnInit {
   onMapReady($event: L.Map) {
     this.map = $event;
     //this.onGetVehiclePosition();
-    //this.onUpdateMakers()
+    this.onUpdateMakers()
+    this.onAddMarkers(4.0226731,9.7030975,"FM1000-1")
   }
 
-  
  private initMap():void{
   this.options = {
     layers: [
