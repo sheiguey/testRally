@@ -99,7 +99,7 @@
               {
                 "glob": "**/*",
                 "input": "./node_modules/leaflet/dist/images",
-                "output": "./assets/icons"
+                "output": "assets/"
               }
             ],
             "styles": [
