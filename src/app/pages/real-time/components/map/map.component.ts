@@ -1829,6 +1829,7 @@ export class MapComponent implements OnInit {
   ngOnInit(): void {
     this.initMap()
     //setInterval(this.onGetVehiclePosition(),10000) */
+    setInterval(()=>this.onGetVehiclePosition(),3000)
    } 
       
   constructor(private realTimeService:RealTimeService){}
@@ -1858,14 +1859,6 @@ export class MapComponent implements OnInit {
     L.marker([Y, X]).addTo(this.map).bindPopup("<p>Vehicule</p><b>"+" "+ vehicule + "</b>").openPopup()
   }
 
-
-
-  onMapReady($event: L.Map) {
-    this.map = $event;
-    this.onGetVehiclePosition();
-    //this.onUpdateMakers()
-    this.onAddMarkers(4.0226731,9.7030975,"FM1000-1")
-  }
 
 
 
