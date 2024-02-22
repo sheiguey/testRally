@@ -55,15 +55,13 @@ export class MapComponent implements OnInit {
   }
 
 
-  addMarkers(Y:number,X:number) {
-    L.marker([Y, X]).addTo(this.map)
+  addMarkers(Y:number,X:number,vehicule:string) {
+    L.marker([Y, X]).addTo(this.map).bindPopup("<p>Vehicule</p><b>"+" "+ vehicule + "</b>").openPopup()
   }
-
-  
 
   onMapReady($event: L.Map) {
     this.map = $event;
-    this.addMarkers(4.0226731,9.7030975);
+    this.addMarkers(4.0226731,9.7030975,"FM1000-2");
   }
 
  private initMap():void{
