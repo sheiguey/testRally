@@ -23,6 +23,10 @@ export class MapComponent implements OnInit {
   sid!:""
 
 
+  ngOnInit(): void {
+    this.initMap()
+   } 
+      
   constructor(private realTimeService:RealTimeService){}
 
   onGetSid(){
@@ -30,7 +34,6 @@ export class MapComponent implements OnInit {
     .then(res=>{
       this.sid=res.data
     })
-   
     .then(()=>console.log(this.sid))
   }
 
@@ -95,9 +98,5 @@ export class MapComponent implements OnInit {
 }
  
 
-ngOnInit(): void {
- this.initMap()
-} 
-   
 
 }
