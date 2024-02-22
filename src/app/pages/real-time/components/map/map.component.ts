@@ -18,7 +18,6 @@ L.Icon.Default.imagePath = 'assets/icons/map/'
 
 export class MapComponent implements OnInit {
   private map!: L.Map;
-  markers: L.Marker[] = [];
   options!:{};
   sid!:"";
   vehiclePosition!:[]
@@ -26,14 +25,15 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     this.initMap()
-    this.onUpdatePosition()
+    setInterval(()=>this.onUpdatePosition(),5000)
    } 
       
   constructor(private realTimeService:RealTimeService){}
  
   onUpdatePosition(){
     this.onGetSid();
-    this.onGetVehiclePosition(this.sid)
+    this.onGetVehiclePosition(this.sid);
+    this.onUpdateMakers();
   }
 
   onGetSid(){
@@ -55,13 +55,21 @@ export class MapComponent implements OnInit {
   }
 
 
-  addMarkers(Y:number,X:number,vehicule:string) {
+  onAddMarkers(Y:number,X:number,vehicule:string) {
     L.marker([Y, X]).addTo(this.map).bindPopup("<p>Vehicule</p><b>"+" "+ vehicule + "</b>").openPopup()
+  }
+
+  onUpdateMakers(){
+     if(this.vehiclePosition.length>0){
+        this.vehiclePosition.map((item)=>{
+          this.onAddMarkers((item as any).pos.Y,(item as any).pos.X,(item as any).nm)
+        })
+     }
   }
 
   onMapReady($event: L.Map) {
     this.map = $event;
-    this.addMarkers(4.0226731,9.7030975,"FM1000-2");
+    this.onAddMarkers(4.0226731,9.7030975,"FM1000-2");
   }
 
  private initMap():void{
