@@ -23,7 +23,8 @@ export class MapComponent implements OnInit {
   vehiclePosition!:[]
 
   ngOnInit(): void {
-    this.initMap()
+    this.initMap();
+    this.onGetVehiclePosition();
     setInterval(()=>this.onGetVehiclePosition(),30000)
    } 
       
