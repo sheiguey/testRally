@@ -1864,7 +1864,7 @@ export class MapComponent implements OnInit {
   onMapReady($event: L.Map) {
     this.map = $event;
     //this.onGetVehiclePosition();
-   // this.onUpdateMakers()
+    this.onUpdateMakers()
     this.onAddMarkers(4.0226731,9.7030975,"FM1000-1")
   }
 
