@@ -1842,7 +1842,7 @@ export class MapComponent implements OnInit {
     .finally(()=>console.log(this.sid))
   }
   
-  onGetVehiclePosition(){
+  /* onGetVehiclePosition(){
     this.onGetSid();
     this.realTimeService.getVehiclePosition(this.sid)
     .then(res=>{
@@ -1851,7 +1851,7 @@ export class MapComponent implements OnInit {
     .then(()=>this.onUpdateMakers())
     .catch(err => console.log(err))
     .finally(()=>console.log(this.vehiclePosition))
-  }
+  } */
 
   onAddMarkers(Y:number,X:number,vehicule:string) {
     L.marker([Y, X]).addTo(this.map).bindPopup("<p>Vehicule</p><b>"+" "+ vehicule + "</b>").openPopup()
@@ -1866,7 +1866,7 @@ export class MapComponent implements OnInit {
   onMapReady($event: L.Map) {
     this.map = $event;
     //this.onGetVehiclePosition();
-    this.onUpdateMakers()
+    //this.onUpdateMakers()
   }
 
   
@@ -1877,7 +1877,6 @@ export class MapComponent implements OnInit {
         attribution: '&copy; <a href="https://camtrack.net/">Camtrack</a>'
       })
     ],
-   
     center: { lat: 4.0482700, lng: 9.7042800 }
   }
 }
