@@ -22,19 +22,6 @@ export class MapComponent implements OnInit {
   sid!:"";
   vehiclePosition=[
     {
-       "nm":"//FMB140 Fota Test",
-       "cls":2,
-       "id":26933994,
-       "mu":0,
-       "pos":null,
-       "lmsg":null,
-       "act":1,
-       "dactt":0,
-       "vp":null,
-       "retr":null,
-       "uacl":19327369763
-    },
-    {
        "nm":"FM1000-1",
        "cls":2,
        "id":27887883,
@@ -1841,7 +1828,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     this.initMap()
-    this.onUpdateMakers()
+   // this.onUpdateMakers()
  /*    setInterval(()=>this.onUpdatePosition(),10000) */
    } 
       
@@ -1870,24 +1857,23 @@ export class MapComponent implements OnInit {
     .finally(()=>console.log(this.vehiclePosition))
   }
 
-
   onAddMarkers(Y:number,X:number,vehicule:string) {
     L.marker([Y, X]).addTo(this.map).bindPopup("<p>Vehicule</p><b>"+" "+ vehicule + "</b>").openPopup()
   }
 
   onUpdateMakers(){
     this.vehiclePosition.map((item)=>{
-      this.onAddMarkers((item as any).pos?.x,(item as any).pos?.y,(item as any).nm)
-      console.log(item);
-      console.log(item.pos?.y)
+      this.onAddMarkers((item as any).pos?.y,(item as any).pos?.x,(item as any).nm);
     })
   }
 
   onMapReady($event: L.Map) {
     this.map = $event;
     this.onAddMarkers(4.0226731,9.7030975,"FM1000-2");
+    this.onUpdateMakers()
   }
 
+  
  private initMap():void{
   this.options = {
     layers: [
