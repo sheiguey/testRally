@@ -34,15 +34,15 @@ export class MapComponent implements OnInit {
   onGetSid(){
     this.realTimeService.getSessionId()
     .then(res=>{
-      this.sid=res.data.eid
+      this.sid=res.data.gis_sid
     })
     .catch(err => console.log(err))
     .finally(()=>console.log(this.sid))
   }
   
   onGetVehiclePosition(){
-    this.onGetSid();
-    this.realTimeService.getVehiclePosition(this.sid)
+   
+    this.realTimeService.getVehiclePosition("05ba07353ea7f6210ca4701c917b0c65")
     .then(res=>{
       this.vehiclePosition=res.data
     })
