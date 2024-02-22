@@ -30,8 +30,8 @@ export class MapComponent implements OnInit {
     .then(res=>{
       this.sid=res.data
     })
-    .catch(err => console.log(err))
-    .finally(()=>console.log(this.sid))
+   
+    .then(()=>console.log(this.sid))
   }
 
 
