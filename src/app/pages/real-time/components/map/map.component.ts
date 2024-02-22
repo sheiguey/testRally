@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { RealTimeService } from '../../../../services/realtime/realtime.service';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
