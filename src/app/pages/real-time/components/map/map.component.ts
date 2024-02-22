@@ -96,7 +96,6 @@ export class MapComponent implements OnInit {
  
 
 ngOnInit(): void {
- this.onGetSid()
  this.initMap()
 } 
    
