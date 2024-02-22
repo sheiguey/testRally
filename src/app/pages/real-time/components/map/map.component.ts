@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit,AfterViewInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { RealTimeService } from '../../../../services/realtime/realtime.service';
+
 import * as L from 'leaflet';
 
 import { GoogleMap } from '@angular/google-maps';
@@ -18,6 +20,20 @@ export class MapComponent implements OnInit {
   private map!: L.Map;
   markers: L.Marker[] = [];
   options!:{}
+  sid!:""
+
+
+  constructor(private realTimeService:RealTimeService){}
+
+  onGetSid(){
+    this.realTimeService.getSessionId()
+    .then(res=>{
+      this.sid=res.data
+    })
+    .catch(err => console.log(err))
+    .finally(()=>console.log(this.sid))
+  }
+
 
   initMarkers() {
     const initialMarkers = [
@@ -78,9 +94,9 @@ export class MapComponent implements OnInit {
   }
 }
  
-constructor(){}
 
 ngOnInit(): void {
+ this.onGetSid()
  this.initMap()
 } 
    
