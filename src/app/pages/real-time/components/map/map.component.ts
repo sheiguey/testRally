@@ -1870,8 +1870,8 @@ export class MapComponent implements OnInit {
 
   onMapReady($event: L.Map) {
     this.map = $event;
-    this.onUpdatePosition();
-    //this.onUpdateMakers()
+    //this.onUpdatePosition();
+    this.onUpdateMakers()
   }
 
   
