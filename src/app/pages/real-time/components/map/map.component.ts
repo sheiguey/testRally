@@ -74,7 +74,7 @@ export class MapComponent implements OnInit {
       })
     ],
     zoom: 16,
-    center: { lat: 44.86056717, lng: 57.46167328 }
+    center: { lat: 4.0482700, lng: 9.7042800 }
   }
 }
  
