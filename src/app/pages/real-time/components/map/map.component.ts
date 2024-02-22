@@ -26,10 +26,16 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     this.initMap()
-    this.onGetVehiclePosition()
+    this.onUpdatePosition()
+    setInterval(()=>this.onUpdatePosition(),3000)
    } 
       
   constructor(private realTimeService:RealTimeService){}
+ 
+  onUpdatePosition(){
+    this.onGetSid();
+    this.onGetVehiclePosition(this.sid)
+  }
 
   onGetSid(){
     this.realTimeService.getSessionId()
@@ -40,9 +46,8 @@ export class MapComponent implements OnInit {
     .finally(()=>console.log(this.sid))
   }
   
-  onGetVehiclePosition(){
-   
-    this.realTimeService.getVehiclePosition("05ba07353ea7f6210ca4701c917b0c65")
+  onGetVehiclePosition(param:string){
+    this.realTimeService.getVehiclePosition(param)
     .then(res=>{
       this.vehiclePosition=res.data
     })
@@ -97,6 +102,7 @@ export class MapComponent implements OnInit {
     console.log($event.target.getLatLng());
   }
 
+
  private initMap():void{
   this.options = {
     layers: [
@@ -109,6 +115,6 @@ export class MapComponent implements OnInit {
   }
 }
  
-
+ 
 
 }
