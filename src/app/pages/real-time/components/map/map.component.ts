@@ -13,19 +13,10 @@ import { GoogleMap } from '@angular/google-maps';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class MapComponent {
+export class MapComponent implements OnInit {
   private map!: L.Map;
   markers: L.Marker[] = [];
-
-  options = {
-    layers: [
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      })
-    ],
-    zoom: 16,
-    center: { lat: 28.626137, lng: 79.821603 }
-  }
+  private options!:{}
 
   initMarkers() {
     const initialMarkers = [
@@ -74,27 +65,23 @@ export class MapComponent {
     console.log($event.target.getLatLng());
   }
 
- /*  private initMap():void{
-    this.map = L.map('map').setView([51.505, -0.09], 13);
+ private initMap():void{
+  this.options = {
+    layers: [
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      })
+    ],
+    zoom: 16,
+    center: { lat: 28.626137, lng: 79.821603 }
+  }
+}
+ 
+constructor(){}
 
-    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 10,
-      attribution: '&copy; <a href="https://camtrack.net/">Camtrack</a>'
-    });
-
-    tiles.addTo(this.map)
-
-    L.marker([4.0227234,9.7029807]).addTo(this.map)
-    .bindPopup('conducteur 1')
-    .openPopup();
-   }
- */
-  constructor(){}
-
-/*   ngOnInit(): void {
+ngOnInit(): void {
  this.initMap()
-  } */
+} 
    
 
 }
