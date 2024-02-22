@@ -20,7 +20,7 @@ export class MapComponent implements OnInit {
   private map!: L.Map;
   options!:{};
   sid!:"";
-/*   vehiclePosition=[
+ vehiclePosition=[
     {
        "nm":"FM1000-1",
        "cls":2,
@@ -1823,8 +1823,8 @@ export class MapComponent implements OnInit {
        "retr":null,
        "uacl":19327369763
     }
- ] */
-  vehiclePosition!:[]
+ ] 
+  //vehiclePosition!:[]
 
   ngOnInit(): void {
     this.initMap()
