@@ -20,7 +20,7 @@ export class MapComponent implements OnInit {
   private map!: L.Map;
   options!:{};
   sid!:"";
-/*  vehiclePosition=[
+  vehiclePosition=[
     {
        "nm":"FM1000-1",
        "cls":2,
@@ -1823,12 +1823,12 @@ export class MapComponent implements OnInit {
        "retr":null,
        "uacl":19327369763
     }
- ]  */
-  vehiclePosition!:[]
+  ]  
+  //vehiclePosition!:[]
 
   ngOnInit(): void {
     this.initMap()
-    this.onGetVehiclePosition()
+    //this.onGetVehiclePosition()
    } 
       
   constructor(private realTimeService:RealTimeService){}
@@ -1865,8 +1865,8 @@ export class MapComponent implements OnInit {
 
   onMapReady($event: L.Map) {
     this.map = $event;
-    this.onGetVehiclePosition();
-    //this.onUpdateMakers()
+    //this.onGetVehiclePosition();
+    this.onUpdateMakers()
   }
 
   
