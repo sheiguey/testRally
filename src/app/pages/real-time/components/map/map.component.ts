@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit,AfterViewInit } from '@angular/core';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import * as L from 'leaflet';
 
 import { GoogleMap } from '@angular/google-maps';
@@ -6,7 +7,7 @@ import { GoogleMap } from '@angular/google-maps';
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [GoogleMap],
+  imports: [GoogleMap,LeafletModule],
   templateUrl: './map.component.html',
   styleUrl: './map.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
