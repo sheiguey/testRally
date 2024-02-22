@@ -25,6 +25,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     this.initMap()
+    this.onGetSid()
    } 
       
   constructor(private realTimeService:RealTimeService){}
@@ -35,7 +36,7 @@ export class MapComponent implements OnInit {
       this.sid=res.data
     })
     .catch(err => console.log(err))
-    .then(()=>console.log(this.sid))
+    .finally(()=>console.log(this.sid))
   }
 
 
