@@ -4,7 +4,7 @@ import * as L from 'leaflet';
 
 import { GoogleMap } from '@angular/google-maps';
 
-L.Icon.Default.imagePath = 'assets/icons/map'
+L.Icon.Default.imagePath = 'assets/icons/map/'
 @Component({
   selector: 'app-map',
   standalone: true,
