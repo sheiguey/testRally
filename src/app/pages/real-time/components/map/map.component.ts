@@ -1828,17 +1828,10 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     this.initMap()
-   // this.onUpdateMakers()
- /*    setInterval(()=>this.onUpdatePosition(),10000) */
+    //setInterval(this.onGetVehiclePosition(),10000) */
    } 
       
   constructor(private realTimeService:RealTimeService){}
-
-  onUpdatePosition(){
-    this.onGetSid();
-    this.onGetVehiclePosition(this.sid);
-    this.onUpdateMakers();
-  }
 
   onGetSid(){
     this.realTimeService.getSessionId()
@@ -1849,11 +1842,13 @@ export class MapComponent implements OnInit {
     .finally(()=>console.log(this.sid))
   }
   
-  onGetVehiclePosition(param:string){
-    this.realTimeService.getVehiclePosition(param)
+  onGetVehiclePosition(){
+    this.onGetSid();
+    this.realTimeService.getVehiclePosition(this.sid)
     .then(res=>{
       this.vehiclePosition=res.data.items
     })
+    .then(()=>this.onUpdateMakers())
     .catch(err => console.log(err))
     .finally(()=>console.log(this.vehiclePosition))
   }
@@ -1870,8 +1865,8 @@ export class MapComponent implements OnInit {
 
   onMapReady($event: L.Map) {
     this.map = $event;
-    //this.onUpdatePosition();
-    this.onUpdateMakers()
+    this.onGetVehiclePosition();
+    //this.onUpdateMakers()
   }
 
   
