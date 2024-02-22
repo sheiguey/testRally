@@ -1833,35 +1833,41 @@ export class MapComponent implements OnInit {
       
   constructor(private realTimeService:RealTimeService){}
 
-  onGetSid(){
+/*   onGetSid(){
     this.realTimeService.getSessionId()
     .then(res=>{
       this.sid=res.data.eid
     })
     .catch(err => console.log(err))
     .finally(()=>console.log(this.sid))
-  }
+  } */
   
   onGetVehiclePosition(){
-    this.onGetSid();
-    this.realTimeService.getVehiclePosition(this.sid)
+   this.realTimeService.getSessionId()
+   .then(res=>{
+     this.sid=res.data.eid
+   }).then(()=>{
+      this.realTimeService.getVehiclePosition(this.sid)
     .then(res=>{
       this.vehiclePosition=res.data.items
     })
     .then(()=>this.onUpdateMakers())
     .catch(err => console.log(err))
+   }  
+   )
   } 
 
-  
   onAddMarkers(Y:number,X:number,vehicule:string) {
     L.marker([Y, X]).addTo(this.map).bindPopup("<p>Vehicule</p><b>"+" "+ vehicule + "</b>").openPopup()
   }
 
 
   onUpdateMakers(){
-    this.vehiclePosition.map((item)=>{
-      this.onAddMarkers((item as any).pos?.y,(item as any).pos?.x,(item as any).nm);
-    })
+   if(this.vehiclePosition.length>0){
+      this.vehiclePosition.map((item)=>{
+         this.onAddMarkers((item as any).pos?.y,(item as any).pos?.x,(item as any).nm);
+       })
+   } 
   }
 
 
