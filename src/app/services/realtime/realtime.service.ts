@@ -1,6 +1,11 @@
 import { Injectable } from "@angular/core";
 import axios from "axios";
 
+
+@Injectable({
+    providedIn: 'root'
+})
+
 export class RealTimeService {
     API_URL = 'https://hst-api.wialon.com/wialon/ajax.html?';
     constructor() { }

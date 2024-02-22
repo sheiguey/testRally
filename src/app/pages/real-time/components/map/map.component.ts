@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { RealTimeService } from '../../../../services/realtime/realtime.service';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-
+import { RealTimeService } from '../../../../services/realtime/realtime.service';
 
 import * as L from 'leaflet';
 
@@ -28,15 +27,16 @@ export class MapComponent implements OnInit {
     this.initMap()
    } 
       
-  constructor(){}
+  constructor(private realTimeService:RealTimeService){}
 
-/*   onGetSid(){
+  onGetSid(){
     this.realTimeService.getSessionId()
     .then(res=>{
       this.sid=res.data
     })
+    .catch(err => console.log(err))
     .then(()=>console.log(this.sid))
-  } */
+  }
 
 
   initMarkers() {
