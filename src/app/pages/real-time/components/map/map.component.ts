@@ -1877,7 +1877,7 @@ export class MapComponent implements OnInit {
 
   onUpdateMakers(){
     this.vehiclePosition.map((item)=>{
-      // this.onAddMarkers((item as any).pos?.y,(item as any).pos?.x,(item as any).nm)
+      this.onAddMarkers((item as any).pos?.x,(item as any).pos?.y,(item as any).nm)
       console.log(item);
       console.log(item.pos?.y)
     })
