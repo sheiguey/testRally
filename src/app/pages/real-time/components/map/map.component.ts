@@ -54,15 +54,13 @@ export class MapComponent implements OnInit {
     .finally(()=>console.log(this.vehiclePosition))
   }
 
-  initMarkers() {
-    L.marker([51.5, -0.09]).addTo(this.map)
+  addMarkers(Y:number,X:number) {
+    L.marker([Y, X]).addTo(this.map)
   }
-
-  
 
   onMapReady($event: L.Map) {
     this.map = $event;
-    this.initMarkers();
+    this.addMarkers(4.0226731,9.7030975);
   }
 
  private initMap():void{
@@ -73,7 +71,7 @@ export class MapComponent implements OnInit {
       })
     ],
     zoom: 16,
-    center: { lat: 28.626137, lng: 79.821603 }
+    center: { lat: 447496.86056717, lng: 578176.46167328 }
   }
 }
  
