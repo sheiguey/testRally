@@ -29,13 +29,13 @@ export class MapComponent implements OnInit {
       
   constructor(private realTimeService:RealTimeService){}
 
-  onGetSid(){
+/*   onGetSid(){
     this.realTimeService.getSessionId()
     .then(res=>{
       this.sid=res.data
     })
     .then(()=>console.log(this.sid))
-  }
+  } */
 
 
   initMarkers() {
