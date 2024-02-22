@@ -40,7 +40,7 @@ export class MapComponent implements OnInit {
   onGetSid(){
     this.realTimeService.getSessionId()
     .then(res=>{
-      this.sid=res.data.gis_sid
+      this.sid=res.data.eid
     })
     .catch(err => console.log(err))
     .finally(()=>console.log(this.sid))
