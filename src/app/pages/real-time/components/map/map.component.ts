@@ -1852,9 +1852,11 @@ export class MapComponent implements OnInit {
     .catch(err => console.log(err))
   } 
 
+  
   onAddMarkers(Y:number,X:number,vehicule:string) {
     L.marker([Y, X]).addTo(this.map).bindPopup("<p>Vehicule</p><b>"+" "+ vehicule + "</b>").openPopup()
   }
+
 
   onUpdateMakers(){
     this.vehiclePosition.map((item)=>{
@@ -1862,12 +1864,16 @@ export class MapComponent implements OnInit {
     })
   }
 
+
+
   onMapReady($event: L.Map) {
     this.map = $event;
     this.onGetVehiclePosition();
     //this.onUpdateMakers()
     this.onAddMarkers(4.0226731,9.7030975,"FM1000-1")
   }
+
+
 
  private initMap():void{
   this.options = {
