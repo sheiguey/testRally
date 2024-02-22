@@ -25,7 +25,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     this.initMap()
-    setInterval(()=>this.onUpdatePosition(),5000)
+    setInterval(()=>this.onUpdatePosition(),10000)
    } 
       
   constructor(private realTimeService:RealTimeService){}
@@ -62,7 +62,7 @@ export class MapComponent implements OnInit {
   onUpdateMakers(){
      if(this.vehiclePosition.length>0){
         this.vehiclePosition.map((item)=>{
-          this.onAddMarkers((item as any).pos.Y,(item as any).pos.X,(item as any).nm)
+          this.onAddMarkers((item as any).pos.y,(item as any).pos.x,(item as any).nm)
         })
      }
   }
