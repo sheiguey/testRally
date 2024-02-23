@@ -24,8 +24,6 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     this.initMap();
-    this.onGetVehiclePosition();
-    setInterval(()=>this.onGetVehiclePosition(),15000)
    } 
       
   constructor(private realTimeService:RealTimeService){}
@@ -59,6 +57,8 @@ export class MapComponent implements OnInit {
 
   onMapReady($event: L.Map) {
     this.map = $event;
+    this.onGetVehiclePosition();
+    setInterval(()=>this.onGetVehiclePosition(),15000)
   }
 
  private initMap():void{
