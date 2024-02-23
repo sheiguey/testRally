@@ -57,7 +57,7 @@ export class MapComponent implements OnInit {
   onMapReady($event: L.Map) {
     this.map = $event;
     this.onGetVehiclePosition();
-    setInterval(()=>this.onGetVehiclePosition(),15000)
+    setInterval(()=>this.onGetVehiclePosition(),30000)
   }
 
  private initMap():void{
