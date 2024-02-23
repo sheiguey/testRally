@@ -67,7 +67,7 @@ export class MapComponent implements OnInit {
         attribution: '&copy; <a href="https://camtrack.net/">Camtrack</a>'
       })
     ],
-    zoom: 20,
+    zoom: 16,
     center: { lat: 4.0482700, lng: 9.7042800 }
   }
 }
