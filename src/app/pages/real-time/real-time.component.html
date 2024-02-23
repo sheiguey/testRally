@@ -18,42 +18,7 @@
     </div>
     <mat-card-content class="content">
         <div class="map" [ngClass]="{'fullscreen': isFullScreen()}">
-             
-                <app-map />
-          
-        </div>
-        <div class="list" [ngClass]="{'fullscreen': isFullScreen()}">
-            <section class="table mat-elevation-z8" tabindex="0">
-                <table mat-table [dataSource]="dataSource" class="scroll">
-                    <ng-container matColumnDef="Rang">
-                        <th mat-header-cell *matHeaderCellDef>Rang</th>
-                        <td mat-cell *matCellDef="let element">
-                            <div>
-                                {{element.rang}}
-                            </div>
-                        </td>
-                    </ng-container>
-                     <!-- Position Column -->
-                    <ng-container matColumnDef="Pilotes">
-                        <th mat-header-cell *matHeaderCellDef> Pilote </th>
-                        <td mat-cell *matCellDef="let element" style="display: flex; align-items: center; "> 
-                            <div class="imgDriver">
-                                <div class="img1">
-                                    <img src={{element.img}} alt="" >
-                                </div>
-                                <div class="img2">
-                                    <img src={{element.imgCar}} alt="" >
-                                </div>
-                            </div>
-                            <div>
-                                {{element.pilote}} 
-                            </div>
-                        </td>
-                    </ng-container>
-
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                </table>
-            </section>
+            <iframe src="https://help.wialon.com/help/wialon-hosting/en/user-guide/monitoring-system/monitoring/locator" width="100%" height="500"></iframe>
         </div>
     </mat-card-content>
 </mat-card>
