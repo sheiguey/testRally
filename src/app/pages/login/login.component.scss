@@ -61,6 +61,20 @@
         align-items: center;
         gap: 2rem;
     }
+    .errorMsg {
+        color: red;
+        font-weight: bold;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .error {
+        input {
+            border-color:  red;
+        }
+    }
 
     
 }

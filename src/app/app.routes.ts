@@ -15,17 +15,16 @@ export const routes: Routes = [
                 path: 'dashboard',
                 title: 'Dashboard',
                 loadComponent: () => import('./pages/dashboard/dashboard.component').then(c => c.DashboardComponent),
-                canMatch: [homeGuard], 
+                // canMatch: [homeGuard], 
             },
             {
                 path: 'resultat-finale',
-                loadComponent: () => import('./pages/resultat-final/resultat-final.component').then(c => c.ResultatFinalComponent),
-
+                loadChildren: () => import('./pages/resultat-final/routes').then(c => c.routes)
             },
             {
                 path: 'create-pilote',
                 loadComponent: () => import('./pages/create-pilote/create-pilote.component').then(c => c.CreatePiloteComponent),
-                canMatch: [homeGuard], 
+                // canMatch: [homeGuard], 
 
             },
             {
@@ -46,8 +45,8 @@ export const routes: Routes = [
         path: 'login',
         loadComponent: () => import('./pages/login/login.component').then(c => c.LoginComponent),
     },
-    {
-        path: '**',
-        loadComponent: () => import('./pages/not-found/not-found.component').then(c => c.NotFoundComponent)
-    }
+    // {
+    //     path: '**',
+    //     loadComponent: () => import('./pages/not-found/not-found.component').then(c => c.NotFoundComponent)
+    // }
 ];

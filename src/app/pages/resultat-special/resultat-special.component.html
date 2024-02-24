@@ -23,18 +23,32 @@
                 [routerLink]="[{ outlets: { special: ['special-1'] } }]"
                 routerLinkActive="active"
             >
-                <p>Evolution speciale 1</p>
+                <p>Temps Intermediaire 1</p>
             </div>
             <div 
                 class="content__nav-item" 
                 [routerLink]="[{ outlets: {special: ['special-2'] } }]"
                 routerLinkActive="active"    
             >
-                <p>Evolution speciale 2</p>
+                <p>Temps Intermediaire 2</p>
             </div>
+            <!-- <div 
+            class="content__nav-item" 
+            [routerLink]="[{ outlets: { special: ['special-3'] } }]"
+            routerLinkActive="active"
+        >
+            <p>Sprint</p>
+        </div> -->
+        <!-- <div 
+            class="content__nav-item" 
+            [routerLink]="[{ outlets: {special: ['special-4'] } }]"
+            routerLinkActive="active"    
+        >
+            <p>Speciale 2 Arrivée 2</p>
+        </div> -->
         </div>
         <div class="content__main">
             <router-outlet name="special"></router-outlet>
         </div>
     </mat-card-content>
-</mat-card> 
+</mat-card>

@@ -27,6 +27,16 @@
         }
     }
 }
+.disabled-button {
+    &:disabled {
+        opacity: 0.5; /* Réduire l'opacité pour indiquer qu'il est désactivé */
+        cursor: not-allowed; /* Changer le curseur pour indiquer qu'il n'est pas interactif */
+    }
+}
+.mat-mdc-raised-button.mat-mdc-button-disabled{
+    opacity: 0.4;
+    cursor: not-allowed !important;
+}
 .container {
     position: relative;
     margin-top: 3rem;
@@ -94,9 +104,9 @@
         border-radius: 21px;
         padding-left: 2rem;
         padding-right: 2rem;
-        white-space: nowrap; /* Empêche le texte de se retourner à la ligne */
-        overflow: hidden; /* Cache le texte qui déborde de la largeur du bouton */
-        text-overflow: 'ellipsis'; /* Affiche des points de suspension (...) pour indiquer que du texte est coupé */
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: 'ellipsis'; 
         max-width: 100%; 
     }
     .btnEndRes {
@@ -107,9 +117,9 @@
         border-radius: 21px;
         padding-left: 2rem;
         padding-right: 2rem;
-        white-space: nowrap; /* Empêche le texte de se retourner à la ligne */
-        overflow: hidden; /* Cache le texte qui déborde de la largeur du bouton */
-        text-overflow: 'ellipsis'; /* Affiche des points de suspension (...) pour indiquer que du texte est coupé */
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: 'ellipsis'; 
         max-width: 100%;
     }
     .btnStart {
@@ -117,11 +127,11 @@
         color: $white;
         font-weight: 1;
         border-radius: 21px;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        white-space: nowrap; /* Empêche le texte de se retourner à la ligne */
-        overflow: hidden; /* Cache le texte qui déborde de la largeur du bouton */
-        text-overflow: 'ellipsis'; /* Affiche des points de suspension (...) pour indiquer que du texte est coupé */
+        padding-left: 1rem;
+        padding-right: 1rem;
+        white-space: nowrap;
+        overflow: hidden; 
+        text-overflow: 'ellipsis'; 
         max-width: 100%;
     }
 
@@ -130,8 +140,8 @@
         color: $white;
         font-weight: 1;
         border-radius: 21px;
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
         margin-left: 2%;
     }
     td {
@@ -183,6 +193,7 @@
           /* Hide the scrollbar for IE and Edge */
           -ms-overflow-style: none;
     }
+   
    
 }
 

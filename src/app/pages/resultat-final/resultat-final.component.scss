@@ -1,32 +1,4 @@
 @import '../../styles/variables';
-// .container.fullscreen {
-//     width: 100vw !important;
-//     height: 100vh !important;
-//     z-index: 999999999999;
-// }
-// .tablefullscreen {
-//     height: 100%;
-//     margin: 8rem 1rem 1rem 1rem;
-
-// }
-// .headerfullscreen {
-//     position: absolute;
-//     left: 0;
-//     right: 0;
-//     top: 0;
-//     display: flex;
-//     justify-content: space-between;
-//     background-color: #B9A955;
-//     padding: 1rem;
-//     border-radius: 13px;
-
-//     .img {
-//         cursor: pointer;
-//         &:hover {
-//             scale: 1.1;
-//         }
-//     }
-// }
 
 .container {
     position: relative;
@@ -93,8 +65,31 @@
     }
 
     .content {
-        padding: 2rem;
-        margin-top: 2rem;
+        margin-top: 3rem;
+        p {
+            margin: 0;
+            text-align: center;
+            color: $white;
+            font-size: 21px;
+        }
+        &__nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        &__nav-item {
+            width: 20vw;
+            padding: 0.8rem;
+            background-color: #707070;
+            cursor: pointer;
+        }
+        .active {
+            background-color: #585859;
+        }
+    }
+
+    .content__main {
+        margin-top: 0.5rem;
     }
 
     img {

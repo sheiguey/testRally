@@ -1,76 +1,27 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { RealTimeService } from '../../../../services/realtime/realtime.service';
-
-import * as L from 'leaflet';
-
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GoogleMap } from '@angular/google-maps';
 
-L.Icon.Default.imagePath = 'assets/icons/map/'
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [GoogleMap,LeafletModule],
+  imports: [
+    GoogleMap
+  ],
   templateUrl: './map.component.html',
   styleUrl: './map.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+export class MapComponent {
 
-export class MapComponent implements OnInit {
-  private map!: L.Map;
-  options!:{};
-  sid!:"";
-  vehiclePosition!:[]
+  center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
+  zoom = 4;
+  display: google.maps.LatLngLiteral | null = null;
 
-  ngOnInit(): void {
-    this.initMap();
-   } 
-      
-  constructor(private realTimeService:RealTimeService){}
+  // moveMap(event: google.maps.MapMouseEvent) {
+  //   this.center = (event?.latLng.toJSON());
+  // }
 
-  
-  onGetVehiclePosition(){
-   this.realTimeService.getSessionId()
-   .then(res=>{
-     this.sid=res.data.eid
-   }).then(()=>{
-      this.realTimeService.getVehiclePosition(this.sid)
-    .then(res=>{
-      this.vehiclePosition=res.data.items
-    })
-    .then(()=>console.log(this.vehiclePosition))
-    .then(()=>this.vehiclePosition.map((item)=>{
-       if((item as any).pos?.y && (item as any).pos?.x){
-         this.onAddMarkers((item as any).pos?.y,(item as any).pos?.x,(item as any).nm);
-       }return{}
-    }))
-    .catch(err => console.log(err))
-   }  
-   )
-  } 
-
-  onAddMarkers(Y:number,X:number,vehicule:string) {
-    L.marker([Y, X]).addTo(this.map).bindPopup("<p>Vehicule</p><b>"+" "+ vehicule + "</b>").openPopup()
-  }
-
-
-
-  onMapReady($event: L.Map) {
-    this.map = $event;
-    this.onGetVehiclePosition();
-    setInterval(()=>this.onGetVehiclePosition(),30000)
-  }
-
- private initMap():void{
-  this.options = {
-    layers: [
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://camtrack.net/">Camtrack</a>'
-      })
-    ],
-    zoom: 16,
-    center: { lat: 4.0482700, lng: 9.7042800 }
-  }
-}
- 
+  // move(event: google.maps.MapMouseEvent) {
+  //   this.display = event.latLng.toJSON();
+  // }
 }

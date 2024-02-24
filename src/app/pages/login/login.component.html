@@ -6,12 +6,17 @@
         <mat-divider></mat-divider>
         <mat-card-content class="container__card__content">
             <div class="login">Login</div>
-            <div>
-                <input type="text" placeholder="user name">
+            <div [ngClass]="{'error': usernameError}">
+                <input type="text" placeholder="user name" [(ngModel)]="username"  (input)="resetUsernameError()" required>
             </div>
-            <div>
-                <input type="password" placeholder="Password">
+            <div [ngClass]="{'error': passwordError}">
+                <input type="password" placeholder="Password" [(ngModel)]="password" (input)="resetPasswordError()" required>
             </div>
+            @if (authService.errorMessage()) {
+                <div class="errorMsg">
+                    <p>{{authService.errorMessage()}}</p>
+                </div>
+            }
             <button (click)="login()">Connexion !</button>
         </mat-card-content>
     </mat-card>

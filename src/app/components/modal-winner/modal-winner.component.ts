@@ -1,12 +1,15 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import {
+  MAT_DIALOG_DATA,
   MatDialog,
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { NewDataFinal } from '../../models/input';
+import { HourPipe } from '../../pipe/hour-pipe';
 
 @Component({
   selector: 'app-modal-winner',
@@ -16,7 +19,8 @@ import {
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
-    MatCardModule
+    MatCardModule,
+    HourPipe
   ],
   templateUrl: './modal-winner.component.html',
   styleUrl: './modal-winner.component.scss',
@@ -24,9 +28,11 @@ import {
 })
 export class ModalWinnerComponent {
 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: NewDataFinal) {
+    console.log('modal ', this.data) 
+  }
 
   closeModal() {
     console.log('dfds');
-    
   }
 }

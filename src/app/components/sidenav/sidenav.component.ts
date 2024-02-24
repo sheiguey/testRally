@@ -18,38 +18,6 @@ import { AuthenticationService } from '../../services/auth/authentication.servic
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidenavComponent implements OnInit {
-  menus = [
-    {
-      name: 'Dashboard', 
-      routeLink:'dashboard',
-      icon: '/assets/icons/dashboard.png'
-    },
-    {
-      name: 'Resultat Finale',
-      routeLink:'resultat-finale',
-      icon: '/assets/icons/resultatFinal.png'
-    },
-    {
-      name: 'Créer un pilote',
-      routeLink:'create-pilote',
-      icon: '/assets/icons/create.png',
-    },
-    {
-      name: 'Resultat Lap', 
-      routeLink:'resultat-lap',
-      icon: '/assets/icons/resultatLap.png', 
-    },
-    {
-      name: 'Real Time', 
-      routeLink:'real-time',
-      icon: '/assets/icons/realtime.png'
-    },
-    {
-      name: 'Resultat Speciale', 
-      routeLink:'resultat-speciale',
-      icon: '/assets/icons/resultatSpec.png', 
-    },
-  ]
   btnMenu = signal(true)
   
   constructor(
@@ -67,10 +35,20 @@ export class SidenavComponent implements OnInit {
     })
   }
   
+  refreshPage() {
+    // this.router.navigate(['dashboard']).then(() => {
+    //   window.location.reload();
+    // });
+  }
+
   showNav() {
     this._navBarService.ShowNav()
   }
 
+  connexion() {
+    this.router.navigate(['login'])
+  }
+  
   logout() {
     localStorage.clear()
     this.router.navigate([''])

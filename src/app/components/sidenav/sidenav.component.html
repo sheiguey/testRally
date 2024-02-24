@@ -24,21 +24,69 @@
                 <img src="/assets/icons/lockunlock.svg" alt="lock">
                 <p>Deconnexion</p>
             </div>
+        } @else {
+            <div class="logout" (click)="connexion()">
+                <p style="font-weight: bold;">Connexion</p>
+            </div>
         }
 
         <ul class="main__container-menu">
-            @for (menu of menus; track menu.name) {
-                <li 
-                    [routerLink]=[menu.routeLink]
+            @if (serviceAuth.isLoggedIn()) {
+                <li
+                    routerLink="dashboard"
+                    class="main__container-menu-item"
+                    routerLinkActive="active"
+                    (click)="refreshPage()"
+                >
+                    <div class="title">
+                        <img src='/assets/icons/dashboard.png' alt="icon">
+                        <p>Dashboard</p>
+                    </div>
+                </li>
+            }
+            <li
+                routerLink="resultat-finale"
+                class="main__container-menu-item"
+                routerLinkActive="active"
+            >
+                <div class="title">
+                    <img src='/assets/icons/resultatFinal.png' alt="icon">
+                    <p>Resultat Finale</p>
+                </div>
+            </li>
+            @if (serviceAuth.isLoggedIn()) {
+                <li
+                    routerLink="create-pilote"
                     class="main__container-menu-item"
                     routerLinkActive="active"
                 >
                     <div class="title">
-                        <img src={{menu.icon}} alt="icon">
-                        <p>{{menu.name}}</p>
+                        <img src='/assets/icons/create.png' alt="icon">
+                        <p>Créer un pilote</p>
                     </div>
                 </li>
             }
+            <li
+                routerLink="real-time"
+                class="main__container-menu-item"
+                routerLinkActive="active"
+            >
+                <div class="title">
+                    <img src='/assets/icons/realtime.png' alt="icon">
+                    <p>Real Time</p>
+                </div>
+            </li>
+            <li
+                routerLink="resultat-speciale"
+                class="main__container-menu-item"
+                routerLinkActive="active"
+            >
+                <div class="title">
+                    <img src='/assets/icons/resultatSpec.png' alt="icon">
+                    <p>Resultat Speciale</p>
+                </div>
+            </li>
+            
         </ul>
 
         <div class="logo">

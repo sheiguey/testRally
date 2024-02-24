@@ -17,24 +17,27 @@
         </div>
     </div>
     <mat-card-content class="content">
-        <div>
+        <form (submit)="create()" [formGroup]="formulaire">
             <div class="form-items">
                 <mat-form-field appearance="outline" style=" height: 3rem;">
-                    <input matInput placeholder="Nom du Pilote">
+                    <mat-label>Nom du Pilote</mat-label>
+                    <input matInput formControlName="name"  placeholder="Nom du Pilote">
                 </mat-form-field>
                 <div>
                     <div class="input">
                         @if (fileName) {
-                            <p style="font-size: 17px; color: #919191; font-weight: 1;">{{fileName}}</p>
+                            <p style="font-size: 17px; color: #919191; font-weight: 1;">{{fileName}}</p> 
                         } @else {
-                            <p style="font-size: 17px; color: #919191;">Photo pilote</p>
+                            <p style="font-size: 17px; color: #919191;">{{vehicule().photo}}</p>
                         }
-                        <button class="file" (click)="uploadFile()">
+                        <button type="button" class="file" (click)="uploadFile()">
                             <p>Charger le fichier</p>
                         </button>
                         <input 
                             type="file" 
                             #fileInput 
+                            
+                            name="photo"
                             (change)="handleFileInput($event)"
                             style="display: none; height: 100%;"
                         >
@@ -42,31 +45,22 @@
                 </div>
                 <mat-form-field appearance="outline">
                     <mat-label>Sponsor</mat-label>
-                    <mat-select>
-                      <mat-option value="one">CAMTRACK</mat-option>
-                      <mat-option value="two">CAMTEL</mat-option>
-                    </mat-select>
+                    <input matInput formControlName="sponsor" placeholder="Nom du Pilote">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Marque de véhicule</mat-label>
-                    <mat-select>
-                      <mat-option value="one">CAMTRACK</mat-option>
-                      <mat-option value="two">CAMTEL</mat-option>
-                    </mat-select>
+                    <input matInput formControlName="marque" placeholder="Nom du Pilote">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Id Wialon</mat-label>
-                    <mat-select>
-                      <mat-option value="one">CAMTRACK</mat-option>
-                      <mat-option value="two">CAMTEL</mat-option>
-                    </mat-select>
+                    <input matInput [value]="vehicule().idwialon" placeholder="Nom du Pilote">
                 </mat-form-field>
                 <mat-form-field appearance="outline" style="height: 3rem;" class="imma">
                     <input matInput placeholder="Immatriculation">
                 </mat-form-field>
-                <button mat-raised-button class="validateBtn" (click)="create()">Valider</button>
+                <button type="submit" mat-raised-button class="validateBtn" (click)="create()">Valider</button>
             </div>
-        </div>
+        </form>
 
         <div class="imge">
             <img src="/assets/images/imgCar.png" alt="car image">

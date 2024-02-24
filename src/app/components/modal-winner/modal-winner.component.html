@@ -9,9 +9,9 @@
 </div>
 <mat-dialog-content class="content">
     <div class="img">
-        <div class="imgDriver">
+        <!-- <div class="imgDriver">
             <img src="/assets/images/user.png" alt="User win" style="width: 10vw;">
-        </div>
+        </div> -->
         <div class="imgWinner" >
             <img src="/assets/icons/winner.png" alt="icon win" style="width: 23vw;">
         </div>
@@ -22,7 +22,7 @@
                 <p>Pilotes</p>
             </div>
             <div class="it">
-                <p>Olivier Ramdam</p>
+                <p>{{data.name}}</p>
             </div>
         </div>
         <div class="title__item">
@@ -30,7 +30,7 @@
                 <p>Sponsor</p>
             </div>
             <div class="it">
-                <p>CAMTRACK</p>
+                <p>{{data.sponsor}}</p>
             </div>
         </div>
         <div class="title__item">
@@ -38,7 +38,7 @@
                 <p>Marque</p>
             </div>
             <div class="it">
-                <p>OPEL</p>
+                <p>{{data.marque}}</p>
             </div>
         </div>
         <div class="title__item">
@@ -46,7 +46,7 @@
                 <p>Véhicule</p>
             </div>
             <div class="it">
-                <p>LT 705454-X</p>
+                <p>{{data.vehicule}}</p>
             </div>
         </div>
         <div class="title__item">
@@ -54,7 +54,7 @@
                 <p>Distance Total</p>
             </div>
             <div class="it">
-                <p>105 Km</p>
+                <p>{{data.totalKilometrage}}</p>
             </div>
         </div>
         <div class="title__item">
@@ -62,7 +62,7 @@
                 <p>Heure Total Parcours</p>
             </div>
             <div class="it">
-                <p>4h 45min 5s</p>
+                <p>{{data.hourTotal | hourpipe}}</p>
             </div>
         </div>
     </div>

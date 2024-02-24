@@ -24,54 +24,79 @@
             [ngClass]="{'tablefullscreen': isFullScreen(), 'table': !isFullScreen()}" 
             tabindex="0"
         >
-            <table mat-table [dataSource]="dataSource" class="scroll">
+            <table mat-table [dataSource]="dataSource()" class="scroll">
                 <ng-container matColumnDef="d">
                     <th mat-header-cell *matHeaderCellDef></th>
-                    <td mat-cell *matCellDef="let element" class="flex">
-                        <div class="img1">
-                            <img src={{element.img}} alt={{element.img}} >
-                        </div>
-                        <div class="img2">
-                            <img src={{element.imgCar}} alt={{element.imgCar}} >
-                        </div>
+                    <td mat-cell *matCellDef="let element" (click)="update(element)" class="flex">
+                        @if (element.photo) {
+                            <div class="img1">
+                                <img [src]="'https://bi.camtrack.mg:1000/rallye/img/' + element.photo" alt={{element.photo}} >
+                            </div>
+                        } @else {
+                            <div class="img1">
+                                <img src='/assets/images/car/user.png' alt={{element.photo}} >
+                            </div>
+                        }
                     </td>
                 </ng-container>
                 <!-- Position Column -->
                 <ng-container matColumnDef="Pilote">
                     <th mat-header-cell *matHeaderCellDef> Pilote </th>
-                    <td mat-cell *matCellDef="let element" > 
-                        {{element.pilote}} 
+                    <td mat-cell *matCellDef="let element" (click)="update(element)" style="cursor: pointer;"> 
+                        {{element.name}} 
                     </td>
                 </ng-container>
             
                 <!-- Name Column -->
                 <ng-container matColumnDef="Sponsors">
                     <th mat-header-cell *matHeaderCellDef> Sponsors </th>
-                    <td mat-cell *matCellDef="let element"> {{element.sponsors}} </td>
+                    <td mat-cell *matCellDef="let element" (click)="update(element)"> {{element.sponsor}} </td>
                 </ng-container>
             
                 <!-- Weight Column -->
                 <ng-container matColumnDef="Marque">
                     <th mat-header-cell *matHeaderCellDef> Marque </th>
-                    <td mat-cell *matCellDef="let element"> {{element.marque}} </td>
+                    <td mat-cell *matCellDef="let element" (click)="update(element)"> {{element.marques}} </td>
                 </ng-container>
             
                 <!-- Symbol Column -->
                 <ng-container matColumnDef="Vehicules">
                     <th mat-header-cell *matHeaderCellDef> Véhicules </th>
-                    <td mat-cell *matCellDef="let element"> {{element.car}} </td>
+                    <td mat-cell *matCellDef="let element" (click)="update(element)"> {{element.models}} </td>
                 </ng-container>
 
-                   <!-- Symbol Column -->
-                   <ng-container matColumnDef="Actions">
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Actions">
                     <th mat-header-cell *matHeaderCellDef> Actions </th>
                     <td mat-cell *matCellDef="let element" >
-                        <div style="display: flex; gap: 0.1rem;">
-                            <button mat-raised-button class="btnStartRes">Debut</button>
-                            <button mat-raised-button class="btnEndRes">Fin</button>
-                        </div>
-                        <button mat-raised-button class="btnStart">Debut Course</button>
-                        <button mat-raised-button class="btnEnd">Fin Course</button>
+                        <!-- <div style="display: flex; gap: 0.1rem;">
+                            <button mat-raised-button class="btnStartRes">Dep.1</button>
+                            <button mat-raised-button class="btnEndRes">Arr.1</button>
+                            <button mat-raised-button class="btnStartRes">Dep.2</button>
+                            <button mat-raised-button class="btnEndRes">Arr.2</button>
+                        </div> -->
+                            <button mat-raised-button class="btnStart" 
+                                [ngClass]="{'disabled-button': buttonStates[element.idwialon]?.depart1}"
+                                [disabled]="depart1Enabled[element.idwialon]" 
+                                (click)="depart1(element.idwialon)"
+                            >Depart 1</button>
+                            <button mat-raised-button 
+                                class="btnEnd" 
+                                [disabled]="arrive1Enabled[element.idwialon]" 
+                                [ngClass]="{'disabled-button': buttonStates[element.idwialon]?.depart1}"  
+                                (click)="arrive1(element.idwialon)"
+                            >Arrivé 1</button>
+                            <button mat-raised-button style="margin-left: 0.5rem;" 
+                                class="btnStart" 
+                                [ngClass]="{'disabled-button': buttonStates[element.idwialon]?.depart1}" 
+                                [disabled]="depart2Enabled[element.idwialon]" 
+                                (click)="depart2(element.idwialon)"
+                            >Depart 2</button>
+                            <button mat-raised-button class="btnEnd" 
+                                [disabled]="arrive2Enabled[element.idwialon]" 
+                                [ngClass]="{'disabled-button': buttonStates[element.idwialon]?.depart1}" 
+                                (click)="arrive2(element.idwialon)"
+                            >Arrivé 2</button>
                     </td>
                 </ng-container>
             

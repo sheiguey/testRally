@@ -1,0 +1,67 @@
+<section class="table mat-elevation-z8" tabindex="0">
+    <table mat-table [dataSource]="dataSource" class="scroll">
+        <ng-container matColumnDef="Rang">
+            <th mat-header-cell *matHeaderCellDef>Rang</th>
+            <td mat-cell *matCellDef="let element">
+                <div>
+                    {{element.ranking}}
+                </div>
+            </td>
+        </ng-container>
+        <!-- Position Column -->
+        <ng-container matColumnDef="Pilotes">
+            <th mat-header-cell *matHeaderCellDef> Pilote </th>
+            <td mat-cell *matCellDef="let element" style="display: flex; align-items: center; gap: 0.5rem;"> 
+                <div class="imgDriver">
+                    @if (element.photo) {
+                        <div class="img2">
+                            <img src={{element.photo}} alt="" >
+                        </div>
+                    } @else {
+                        <div class="img1">
+                            <img src='/assets/images/car/user.png' alt="" >
+                        </div>
+                    }
+                </div>
+                <div>
+                    {{element.drivnm}} 
+                </div>
+            </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="Marques">
+            <th mat-header-cell *matHeaderCellDef> Marques </th>
+            <td mat-cell *matCellDef="let element"> {{element.marque}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Vehicules">
+            <th mat-header-cell *matHeaderCellDef> Vehicules </th>
+            <td mat-cell *matCellDef="let element"> {{element.vehicule}} </td>
+        </ng-container>
+    
+          <!-- Symbol Column -->
+          <!-- <ng-container matColumnDef="Total Kilometrage">
+            <th mat-header-cell *matHeaderCellDef> Total Kilometrage </th>
+            <td mat-cell *matCellDef="let element"> 
+                <div [class.greenColor]="element.ranking == 1">
+                    {{element.totalKilometrage}} Km
+                </div> 
+            </td>
+        </ng-container> -->
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Heure Total Parcours">
+            <th mat-header-cell *matHeaderCellDef> Heure Total Parcours </th>
+            <td mat-cell *matCellDef="let element">
+                <div [class.greenColor]="element.ranking == 1">
+                    {{element.hourTotal | hourpipe}}
+                </div> 
+            </td>
+        </ng-container>
+
+        <tr class="headerbc" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</section>
